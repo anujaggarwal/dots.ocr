@@ -41,8 +41,8 @@ def inference(image_path, prompt, model, processor):
     inputs = inputs.to("cuda")
 
     # Inference: Generation of the output
-    # Reduced max_new_tokens to avoid CUDA OOM
-    generated_ids = model.generate(**inputs, max_new_tokens=2048)
+    # Restored original capacity with flash-attn optimization
+    generated_ids = model.generate(**inputs, max_new_tokens=24000)
     generated_ids_trimmed = [
         out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
     ]

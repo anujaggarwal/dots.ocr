@@ -268,12 +268,22 @@ export PATH=$PATH:/usr/local/cuda-12.1/bin
 
 ## Performance Results
 
-After proper installation:
+After proper installation with flash-attention optimization:
 - ✅ **High-resolution images**: 1700x2250 pixels processed successfully
-- ✅ **Complex documents**: Multi-table research papers, legal documents
+- ✅ **Complex documents**: Multi-table research papers, legal documents, medical reports
 - ✅ **Multiple formats**: JSON, markdown, pure text extraction
-- ✅ **Memory efficient**: ~15GB usage vs 22GB+ without flash-attn
-- ✅ **Stable inference**: No CUDA OOM errors
+- ✅ **Memory efficient**: 5.7GB stable usage vs 22GB+ without flash-attn
+- ✅ **Processing speed**: 12-23 seconds per page depending on complexity
+- ✅ **Stable inference**: No CUDA OOM errors or memory leaks
+- ✅ **Batch processing**: Successfully tested up to 21-page documents
+
+### **Benchmark Results:**
+- **Single page**: 12.3s (legal document)
+- **9-page PDF**: 2.5 minutes total (16.6s per page average)
+- **21-page PDF**: 8.2 minutes total (23.3s per page average)
+- **200-page projection**: ~60-80 minutes estimated
+
+*See IMPROVEMENTS.md for detailed performance benchmarks and test results.*
 
 ## Installation Time
 

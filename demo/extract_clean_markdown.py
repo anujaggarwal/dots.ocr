@@ -39,7 +39,7 @@ Just provide the clean text content in markdown format."""
     inputs = inputs.to("cuda")
 
     # Generate response
-    generated_ids = model.generate(**inputs, max_new_tokens=4096)
+    generated_ids = model.generate(**inputs, max_new_tokens=24000)
     generated_ids_trimmed = [
         out_ids[len(in_ids) :] for in_ids, out_ids in zip(inputs.input_ids, generated_ids)
     ]
